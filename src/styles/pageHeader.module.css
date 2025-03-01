@@ -1,0 +1,9 @@
+.wrapper {
+    grid-column: 2 / 3;
+    place-content: center;
+}
+
+.headerText {
+    font-weight: 500;
+    font-size: 2rem;
+}

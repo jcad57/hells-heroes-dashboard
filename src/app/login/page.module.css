@@ -1,0 +1,11 @@
+.loginWrapper {
+    display: grid;
+    height: 100dvh;
+}
+
+.loginFormContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-inline: auto;
+}

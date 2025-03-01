@@ -1,0 +1,6 @@
+.wrapper {
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    height: 100%;
+}

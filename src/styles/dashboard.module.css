@@ -1,0 +1,26 @@
+.commandCenterWrapper {
+    display: grid;
+    grid-template-columns: 20% auto;
+    grid-template-rows: 10% auto;
+    gap: 1rem;
+    padding: 1.25rem;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+}
+
+.dashboardCard {
+    border-radius: 12px;
+    background-color: #0a0a0a;
+    padding: 1.25rem;
+}
+
+.dashboardCard h2 {
+    padding-bottom: 2rem;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

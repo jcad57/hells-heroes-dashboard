@@ -1,0 +1,27 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    outline: 10px solid #622d91;
+    background-color: #0e0e0e;
+    border-radius: 8px;
+    margin-block: 1rem;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    font-size: 1.1em;
+    width: min(35rem, 100%);
+    margin-inline: auto;
+    max-height: 100%;
+}
+
+.flexBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.closeIcon {
+    cursor: pointer;
+    margin-left: auto;
+    width: 35px;
+    height: 35px;
+}
