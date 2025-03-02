@@ -1,5 +1,5 @@
 import { NewsFeedItemProps } from "@/types/NewsFeedItemProps";
-import styles from "@/styles/newsFeedPost.module.css";
+import styles from "./NewsFeedPost.module.css";
 
 export default function NewsFeedPost({ id, title, body, timestamp, onClick, currentPostId }: NewsFeedItemProps) {
     return (

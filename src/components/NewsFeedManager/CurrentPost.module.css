@@ -35,3 +35,9 @@
 .postBody {
     white-space: pre-line;
 }
+
+.buttonWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}

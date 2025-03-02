@@ -1,0 +1,14 @@
+.wrapper {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    display: flex;
+}
+
+.newsFeedListWrapper {
+    flex: 1;
+    padding-block: 1rem;
+    height: auto;
+    flex: 1;
+}

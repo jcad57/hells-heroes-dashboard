@@ -5,17 +5,49 @@ import Image from "next/image";
 import styles from "@/styles/contentSubmissionForm.module.css";
 import Button from "./ui/Button/Button";
 import useManagePosts from "@/hooks/useManagePosts";
+import { useMemo } from "react";
+import { useForm } from "react-hook-form";
 
-export default function ContentSubmissionForm({ title, closeCreateNewPostForm }: CreateNewPostProps) {
-    const { setNewPostBody, newPostBody, newPostTitle, submitNewPost, setNewPostTitle } = useManagePosts();
+export default function ContentSubmissionForm({
+    setShowContentSubmissionForm,
+    formType,
+    newSubmissionTitle,
+    setNewSubmissionTitle,
+    newSubmissionBody,
+    setNewSubmissionBody,
+}: CreateNewPostProps) {
+    const { submitNewPost, submitEditPost } = useManagePosts();
+
+    const formTitle = useMemo(() => {
+        if (formType === "edit") return "Edit Post";
+        if (formType === "push") return "Create New Push Notification";
+        else return "Create New Post";
+    }, [formType]);
+
+    const handleSubmitPost = (data) => {
+        console.log(data);
+        if (formType === "create") {
+            submitNewPost(data);
+            setShowContentSubmissionForm(false);
+        } else {
+            submitEditPost(data);
+            setShowContentSubmissionForm(false);
+        }
+    };
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
 
     return (
         <div>
-            <form className={styles.wrapper}>
+            <form className={styles.wrapper} onSubmit={handleSubmit(handleSubmitPost)}>
                 <div className={styles.flexBetween}>
-                    <h3>{title}</h3>
+                    <h3>{formTitle}</h3>
                     <Image
-                        onClick={() => closeCreateNewPostForm && closeCreateNewPostForm()}
+                        onClick={() => setShowContentSubmissionForm(false)}
                         className={styles.closeIcon}
                         src={closeIcon}
                         alt="close"
@@ -26,18 +58,18 @@ export default function ContentSubmissionForm({ title, closeCreateNewPostForm }:
                 </label>
                 <input
                     placeholder="Upgrades available now..."
-                    onChange={(e) => setNewPostTitle(e.target.value)}
-                    value={newPostTitle}
+                    // onChange={(e) => setNewSubmissionTitle(e.target.value)}
+                    {...register("title", { required: "Title is required" })}
                 />
                 <label>Body</label>
                 <textarea
                     rows={6}
                     placeholder="Upgrade your single day ticket to ..."
-                    onChange={(e) => setNewPostBody(e.target.value)}
-                    value={newPostBody}
+                    {...register("body", { required: "Body is required" })}
                 />
-                <Button btnType="primary" onClick={(e) => submitNewPost(e)}>
-                    Submit!
+
+                <Button btnType={formType === "create" ? "primary" : "secondary"} type="submit">
+                    {formType === "create" ? "Submit!" : "Save Post!"}
                 </Button>
             </form>
         </div>

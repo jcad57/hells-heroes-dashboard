@@ -3,7 +3,7 @@ import PageHeader from "./ui/PageHeader";
 import Logo from "./ui/Logo";
 import SidebarNav from "./SidebarNav";
 import { useState } from "react";
-import NewsFeedManager from "./NewsFeedManager";
+import NewsFeedManager from "./NewsFeedManager/NewsFeedManager";
 import PushNotificationManager from "./PushNotificationManager";
 
 export default function Dashboard() {
