@@ -1,9 +1,9 @@
 "use client";
+import { AllPostsProps } from "@/types/AllPostsProps";
 
 import NewsFeedPost from "./NewsFeedPost";
 import Button from "../ui/Button/Button";
 import styles from "./AllPosts.module.css";
-import { AllPostsProps } from "@/types/AllPostsProps";
 
 export default function AllPosts({ newsFeedItems, currentPostId, handleCreate, toggleCurrentPost }: AllPostsProps) {
     return (
