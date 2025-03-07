@@ -7,7 +7,7 @@ export interface CreateNewPostProps {
     register: UseFormRegister<CreateNewPostData>;
     handleSubmit: (callback: (data: CreateNewPostData) => void) => (event: FormEvent<HTMLFormElement>) => void;
     onSubmit: (data: CreateNewPostData) => Promise<void>;
-    editingPost: NewsFeedItemProps | null;
+    editingPost?: NewsFeedItemProps | null;
     reset?: () => void;
     newsFeedItems?: NewsFeedItemProps[];
 }

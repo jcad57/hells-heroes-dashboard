@@ -3,7 +3,7 @@ import { collection, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestor
 import { db } from "../data/firebase";
 import { useFetchAllPosts } from "./useFetchAllPosts";
 import { NewsFeedItemProps } from "@/types/NewsFeedItemProps";
-import { CreateNewPostData, CreateNewPostProps } from "@/types/CreateNewPostProps";
+import { CreateNewPostData } from "@/types/CreateNewPostProps";
 import { UseFormSetValue } from "react-hook-form";
 
 export default function useNewsfeedPosts(setValue?: UseFormSetValue<CreateNewPostData>, reset?: () => void) {
@@ -29,7 +29,7 @@ export default function useNewsfeedPosts(setValue?: UseFormSetValue<CreateNewPos
         setShowCurrentPost(false);
     }
 
-    const onSubmit = async (data: CreateNewPostProps) => {
+    const onSubmit = async (data: CreateNewPostData) => {
         if (editingPost) {
             await updateDoc(doc(db, "newsfeed-items", editingPost.id), { ...data });
             setEditingPost(null);
