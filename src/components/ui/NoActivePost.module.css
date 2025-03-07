@@ -1,0 +1,9 @@
+.createNewPost {
+    color: var(--primary-red);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.createNewPost:hover {
+    color: var(--secondary-red);
+}

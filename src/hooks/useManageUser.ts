@@ -3,8 +3,6 @@ import { auth } from "../data/firebase";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-// import { FormInput } from "../data/types";
-
 export default function useManageUser() {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const router = useRouter();

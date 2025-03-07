@@ -3,9 +3,10 @@ import { collection, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestor
 import { db } from "../data/firebase";
 import { useFetchAllPosts } from "./useFetchAllPosts";
 import { NewsFeedItemProps } from "@/types/NewsFeedItemProps";
-import { CreateNewPostProps } from "@/types/CreateNewPostProps";
+import { CreateNewPostData, CreateNewPostProps } from "@/types/CreateNewPostProps";
+import { UseFormSetValue } from "react-hook-form";
 
-export default function useNewsfeedPosts(setValue: (title: string, body: string) => void, reset: () => void) {
+export default function useNewsfeedPosts(setValue?: UseFormSetValue<CreateNewPostData>, reset?: () => void) {
     const newsFeedItems = useFetchAllPosts();
     const [showCurrentPost, setShowCurrentPost] = useState(false);
     const [currentPost, setCurrentPost] = useState<NewsFeedItemProps | null>(null);
@@ -36,32 +37,36 @@ export default function useNewsfeedPosts(setValue: (title: string, body: string)
             await addDoc(collection(db, "newsfeed-items"), { ...data, timestamp: new Date().toUTCString() });
         }
         setShowContentSubmissionForm(false);
-        reset();
+        if (reset) reset();
     };
 
     const handleCreate = () => {
         setEditingPost(null);
         setShowCurrentPost(false);
-        setValue("title", "");
-        setValue("body", "");
+        if (setValue) {
+            setValue("title", "");
+            setValue("body", "");
+        }
         setShowContentSubmissionForm(true);
     };
 
-    const handleEdit = (post: NewsFeedItemProps) => {
+    const handleEdit = (post: NewsFeedItemProps | null) => {
         setShowCurrentPost(false);
         setShowContentSubmissionForm(true);
         setEditingPost(post);
-        setValue("title", post.title);
-        setValue("body", post.body);
+        if (setValue) {
+            setValue("title", post?.title || "");
+            setValue("body", post?.body || "");
+        }
     };
 
-    const handleDelete = async (post: NewsFeedItemProps) => {
+    const handleDelete = async (post: NewsFeedItemProps | null) => {
         console.log(post);
         const attempt = window.confirm("Are you sure you want to delete this post?");
         if (!attempt) return;
         setShowCurrentPost(false);
 
-        return await deleteDoc(doc(db, "newsfeed-items", post.id));
+        return await deleteDoc(doc(db, "newsfeed-items", post?.id || ""));
     };
 
     return {
@@ -76,5 +81,6 @@ export default function useNewsfeedPosts(setValue: (title: string, body: string)
         toggleCurrentPost,
         currentPost,
         closeCurrentPost,
+        newsFeedItems,
     };
 }

@@ -5,13 +5,7 @@ import Button from "../ui/Button/Button";
 import styles from "./AllPosts.module.css";
 import { AllPostsProps } from "@/types/AllPostsProps";
 
-export default function AllPosts({
-    newsFeed,
-    handleSelectPost,
-    currentPostId,
-    handleCreate,
-    toggleCurrentPost,
-}: AllPostsProps) {
+export default function AllPosts({ newsFeedItems, currentPostId, handleCreate, toggleCurrentPost }: AllPostsProps) {
     return (
         <div className={styles.wrapper}>
             <h2>All Posts</h2>
@@ -19,7 +13,7 @@ export default function AllPosts({
                 Create New Post
             </Button>
             <div className={styles.newsFeedListWrapper}>
-                {newsFeed.map((newsItem) => (
+                {newsFeedItems.map((newsItem) => (
                     <NewsFeedPost
                         key={newsItem.id}
                         timestamp={newsItem.timestamp}

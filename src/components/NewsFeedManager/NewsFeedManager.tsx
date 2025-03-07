@@ -1,22 +1,19 @@
 "use client";
-import { useFetchAllPosts } from "@/hooks/useFetchAllPosts";
+import { useForm } from "react-hook-form";
+import { CreateNewPostData } from "@/types/CreateNewPostProps";
 
 import styles from "./NewsFeedManager.module.css";
 import AllPosts from "./AllPosts";
-import useManagePosts from "@/hooks/useManagePosts";
 import NoActivePost from "../ui/NoActivePost";
 import CurrentPost from "./CurrentPost";
 import ContentSubmissionForm from "../ContentSubmissionForm";
 
-import { useForm } from "react-hook-form";
 import useNewsfeedPosts from "@/hooks/useNewsFeedPosts";
 
 export default function NewsFeedManager() {
-    const newsFeed = useFetchAllPosts();
-    const { findPost } = useManagePosts();
-
-    const { register, handleSubmit, setValue, reset } = useForm();
+    const { register, handleSubmit, setValue, reset } = useForm<CreateNewPostData>();
     const {
+        newsFeedItems,
         editingPost,
         showContentSubmissionForm,
         setShowContentSubmissionForm,
@@ -34,7 +31,9 @@ export default function NewsFeedManager() {
         <div className={styles.wrapper}>
             <div className={styles.card}>
                 <h2>Manage Post</h2>
-                {!showContentSubmissionForm && !showCurrentPost && <NoActivePost />}
+                {!showContentSubmissionForm && !showCurrentPost && (
+                    <NoActivePost setShowContentSubmissionForm={setShowContentSubmissionForm} />
+                )}
                 {showCurrentPost && (
                     <CurrentPost
                         currentPost={currentPost}
@@ -58,8 +57,7 @@ export default function NewsFeedManager() {
                 <AllPosts
                     toggleCurrentPost={toggleCurrentPost}
                     handleCreate={handleCreate}
-                    newsFeed={newsFeed}
-                    handleSelectPost={(id: string) => findPost(id)}
+                    newsFeedItems={newsFeedItems}
                     currentPostId={currentPost ? currentPost.id : undefined}
                 />
             </div>

@@ -1,13 +1,15 @@
-import useManagePosts from "@/hooks/useManagePosts";
-import styles from "@/styles/noActivePost.module.css";
+import styles from "@/components/ui/NoActivePost.module.css";
 
-export default function NoActivePost() {
-    const { openCreateNewPostForm } = useManagePosts();
+interface NoActivePostProps {
+    setShowContentSubmissionForm: (show: boolean) => void;
+}
+
+export default function NoActivePost({ setShowContentSubmissionForm }: NoActivePostProps) {
     return (
         <div className={styles.wrapper}>
             <span>
                 Select a post to manage or{" "}
-                <span className="text-gradient__purp" onClick={() => openCreateNewPostForm()}>
+                <span className={styles.createNewPost} onClick={() => setShowContentSubmissionForm(true)}>
                     create
                 </span>{" "}
                 a new one
