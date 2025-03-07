@@ -1,11 +1,12 @@
+import { FieldValues, UseFormRegister } from "react-hook-form";
 import { NewsFeedItemProps } from "./NewsFeedItemProps";
+import { FormEvent } from "react";
 
 export interface CreateNewPostProps {
-    currentPost?: NewsFeedItemProps | undefined;
     setShowContentSubmissionForm: (show: boolean) => void;
-    formType: string;
-    newSubmissionBody: string;
-    newSubmissionTitle: string;
-    setNewSubmissionBody: (body: string) => void;
-    setNewSubmissionTitle: (title: string) => void;
+    register: UseFormRegister<FieldValues>;
+    handleSubmit: (callback: (data: FieldValues) => void) => (event: FormEvent<HTMLFormElement>) => void;
+    onSubmit: (data: CreateNewPostProps) => void;
+    editingPost: NewsFeedItemProps | null;
+    reset?: () => void;
 }

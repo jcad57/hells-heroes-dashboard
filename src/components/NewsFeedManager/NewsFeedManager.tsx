@@ -8,51 +8,56 @@ import NoActivePost from "../ui/NoActivePost";
 import CurrentPost from "./CurrentPost";
 import ContentSubmissionForm from "../ContentSubmissionForm";
 
+import { useForm } from "react-hook-form";
+import useNewsfeedPosts from "@/hooks/useNewsFeedPosts";
+
 export default function NewsFeedManager() {
     const newsFeed = useFetchAllPosts();
+    const { findPost } = useManagePosts();
+
+    const { register, handleSubmit, setValue, reset } = useForm();
     const {
-        findPost,
-        currentPost,
+        editingPost,
         showContentSubmissionForm,
         setShowContentSubmissionForm,
+        onSubmit,
+        handleEdit,
+        handleCreate,
+        handleDelete,
+        showCurrentPost,
         toggleCurrentPost,
-        deletePost,
-        editPost,
-        contentFormType,
-        createPost,
-        newSubmissionBody,
-        newSubmissionTitle,
-        setNewSubmissionBody,
-        setNewSubmissionTitle,
-    } = useManagePosts();
+        currentPost,
+        closeCurrentPost,
+    } = useNewsfeedPosts(setValue, reset);
 
     return (
         <div className={styles.wrapper}>
             <div className={styles.card}>
                 <h2>Manage Post</h2>
-                {!showContentSubmissionForm && !currentPost && <NoActivePost />}
-                {currentPost && (
+                {!showContentSubmissionForm && !showCurrentPost && <NoActivePost />}
+                {showCurrentPost && (
                     <CurrentPost
                         currentPost={currentPost}
-                        toggleCurrentPost={toggleCurrentPost}
-                        handleDeletePost={deletePost}
-                        handleEditPost={editPost}
+                        closeCurrentPost={closeCurrentPost}
+                        handleDelete={handleDelete}
+                        handleEdit={handleEdit}
                     />
                 )}
+
                 {showContentSubmissionForm && (
                     <ContentSubmissionForm
-                        formType={contentFormType}
+                        register={register}
+                        handleSubmit={handleSubmit}
+                        onSubmit={onSubmit}
+                        editingPost={editingPost}
                         setShowContentSubmissionForm={setShowContentSubmissionForm}
-                        newSubmissionBody={newSubmissionBody}
-                        newSubmissionTitle={newSubmissionTitle}
-                        setNewSubmissionBody={setNewSubmissionBody}
-                        setNewSubmissionTitle={setNewSubmissionTitle}
                     />
                 )}
             </div>
             <div className={styles.card}>
                 <AllPosts
-                    createPost={createPost}
+                    toggleCurrentPost={toggleCurrentPost}
+                    handleCreate={handleCreate}
                     newsFeed={newsFeed}
                     handleSelectPost={(id: string) => findPost(id)}
                     currentPostId={currentPost ? currentPost.id : undefined}

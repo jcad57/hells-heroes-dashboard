@@ -2,13 +2,21 @@
     overflow: auto;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     display: flex;
+    height: 100%;
 }
 
 .newsFeedListWrapper {
     flex: 1;
     padding-block: 1rem;
-    height: auto;
-    flex: 1;
+    overflow-y: auto;
+    /* height: 100%; */
+}
+
+@media (max-width: 1133px) {
+    .newsFeedListWrapper {
+        /* display: flex;
+        flex-direction: row;
+        overflow-x: auto; */
+    }
 }

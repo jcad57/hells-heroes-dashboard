@@ -29,3 +29,9 @@
     background-color: var(--primary-purple);
     border-radius: 8px;
 }
+
+@media (max-width: 1133px) {
+    .sidebarNavList {
+        padding-inline: 0.5rem;
+    }
+}

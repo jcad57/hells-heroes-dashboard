@@ -1,31 +1,41 @@
 .commandCenterWrapper {
     display: grid;
-    grid-template-columns: 20% auto;
+    grid-template-columns: minmax(280px, 15%) auto;
     grid-template-rows: 10% auto;
     gap: 1rem;
     padding: 1.25rem;
     width: 100vw;
     height: 100vh;
     height: 100dvh;
+    overflow: hidden;
 }
 
 .dashboardCard {
     border-radius: 12px;
     background-color: #0a0a0a;
     padding: 1.25rem;
-    overflow: auto;
 }
 
 .dashboardCard h2 {
     padding-bottom: 1.75rem;
 }
 
-.dashboardContent {
-    height: 100px;
-}
-
 .logoContainer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.dashboardContent {
+    max-height: 100%;
+    overflow: auto;
+}
+
+@media (max-width: 1133px) {
+    .commandCenterWrapper {
+        grid-template-columns: min(200, 26%) auto;
+    }
+    .dashboardContent {
+        max-height: 100%;
+    }
 }

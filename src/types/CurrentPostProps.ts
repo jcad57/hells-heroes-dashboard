@@ -1,8 +1,9 @@
 import { NewsFeedItemProps } from "./NewsFeedItemProps";
 
 export interface CurrentPostProps {
-    currentPost?: NewsFeedItemProps | undefined;
-    handleDeletePost: (id: string) => void;
-    handleEditPost: (id: string) => void;
-    toggleCurrentPost: () => void;
+    currentPost?: NewsFeedItemProps | null;
+    toggleCurrentPost?: () => void;
+    closeCurrentPost: () => void;
+    handleDelete: (post: NewsFeedItemProps) => void;
+    handleEdit: (post: NewsFeedItemProps) => void;
 }

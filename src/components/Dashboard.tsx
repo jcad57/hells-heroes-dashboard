@@ -4,7 +4,7 @@ import Logo from "./ui/Logo";
 import SidebarNav from "./SidebarNav";
 import { useState } from "react";
 import NewsFeedManager from "./NewsFeedManager/NewsFeedManager";
-import PushNotificationManager from "./PushNotificationManager";
+import PushNotificationManager from "./PushNotificationManager/PushNotificationManager";
 
 export default function Dashboard() {
     const [tab, setTab] = useState("newsfeed");

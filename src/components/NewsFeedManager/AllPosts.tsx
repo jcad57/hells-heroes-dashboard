@@ -5,11 +5,17 @@ import Button from "../ui/Button/Button";
 import styles from "./AllPosts.module.css";
 import { AllPostsProps } from "@/types/AllPostsProps";
 
-export default function AllPosts({ newsFeed, handleSelectPost, currentPostId, createPost }: AllPostsProps) {
+export default function AllPosts({
+    newsFeed,
+    handleSelectPost,
+    currentPostId,
+    handleCreate,
+    toggleCurrentPost,
+}: AllPostsProps) {
     return (
         <div className={styles.wrapper}>
             <h2>All Posts</h2>
-            <Button btnType="secondary" onClick={() => createPost()}>
+            <Button btnType="secondary" onClick={() => handleCreate()}>
                 Create New Post
             </Button>
             <div className={styles.newsFeedListWrapper}>
@@ -20,7 +26,7 @@ export default function AllPosts({ newsFeed, handleSelectPost, currentPostId, cr
                         id={newsItem.id}
                         title={newsItem.title}
                         body={newsItem.body}
-                        onClick={handleSelectPost}
+                        onClick={() => toggleCurrentPost(newsItem.id)}
                         currentPostId={currentPostId}
                     />
                 ))}

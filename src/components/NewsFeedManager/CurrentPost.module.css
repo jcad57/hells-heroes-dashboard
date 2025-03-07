@@ -32,6 +32,11 @@
     justify-content: space-between;
 }
 
+.postTitle {
+    font-size: 1.45em;
+    font-weight: bold;
+}
+
 .postBody {
     white-space: pre-line;
 }

@@ -33,3 +33,9 @@
 .selectedPost {
     outline: 4px solid #9250cc;
 }
+
+@media (max-width: 1133px) {
+    .wrapper {
+        min-width: 250px;
+    }
+}

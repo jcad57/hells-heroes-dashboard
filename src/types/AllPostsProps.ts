@@ -4,5 +4,6 @@ export interface AllPostsProps {
     newsFeed: NewsFeedItemProps[];
     handleSelectPost: (id: string) => void;
     currentPostId: string | undefined;
-    createPost: () => void;
+    toggleCurrentPost: (id: string) => void;
+    handleCreate: () => void;
 }

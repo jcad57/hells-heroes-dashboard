@@ -8,24 +8,25 @@ import Button from "../ui/Button/Button";
 
 export default function CurrentPost({
     currentPost,
-    handleDeletePost,
-    handleEditPost,
+    handleDelete,
+    handleEdit,
     toggleCurrentPost,
+    closeCurrentPost,
 }: CurrentPostProps) {
     return (
         <div className={styles.wrapper}>
             <div className={styles.postTimestamp}>
                 {currentPost?.timestamp}
-                <Image onClick={() => toggleCurrentPost()} className={styles.closeIcon} src={closeIcon} alt="close" />
+                <Image onClick={() => closeCurrentPost()} className={styles.closeIcon} src={closeIcon} alt="close" />
             </div>
 
-            <div className="selected-post__title">{currentPost?.title}</div>
+            <div className={styles.postTitle}>{currentPost?.title}</div>
             <div className={styles.postBody}>{formatBodyText(currentPost?.body ?? "")}</div>
             <div className={styles.buttonWrapper}>
-                <Button btnType="secondary" onClick={() => handleEditPost(currentPost?.id ?? "")}>
+                <Button btnType="secondary" onClick={() => handleEdit(currentPost)}>
                     Edit
                 </Button>
-                <Button btnType="primary" onClick={() => handleDeletePost?.(currentPost?.id ?? "")}>
+                <Button btnType="primary" onClick={() => handleDelete(currentPost)}>
                     Delete
                 </Button>
             </div>

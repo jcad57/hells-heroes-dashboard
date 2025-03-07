@@ -4,9 +4,9 @@ import styles from "@/styles/sidebarNav.module.css";
 
 import newsFeedIcon from "@/assets/images/more.png";
 import pushIcon from "@/assets/images/bell.png";
-import businessIcon from "@/assets/images/business.png";
 import Button from "./ui/Button/Button";
 import useManageUser from "@/hooks/useManageUser";
+
 import { SidebarNavProps } from "@/types/SidebarNavProps";
 
 export default function SidebarNav({ tab, setTab }: SidebarNavProps) {
@@ -22,12 +22,12 @@ export default function SidebarNav({ tab, setTab }: SidebarNavProps) {
                     <Image src={pushIcon} width={25} height={25} alt="newsfeed" />
                     Push Notifications
                 </li>
-                <li
+                {/* <li
                     className={tab === "business-list" ? `${styles.selected}` : ""}
                     onClick={() => setTab("business-list")}>
                     <Image src={businessIcon} width={25} height={25} alt="newsfeed" />
                     Business List
-                </li>
+                </li> */}
             </ul>
             <Button btnType="primary" onClick={() => signUserOut()}>
                 Log Out
