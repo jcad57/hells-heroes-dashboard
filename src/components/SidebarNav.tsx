@@ -1,3 +1,5 @@
+import { SidebarNavProps } from "@/types/SidebarNavProps";
+import useManageUser from "@/hooks/useManageUser";
 import Image from "next/image";
 
 import styles from "@/styles/sidebarNav.module.css";
@@ -5,9 +7,6 @@ import styles from "@/styles/sidebarNav.module.css";
 import newsFeedIcon from "@/assets/images/more.png";
 import pushIcon from "@/assets/images/bell.png";
 import Button from "./ui/Button/Button";
-import useManageUser from "@/hooks/useManageUser";
-
-import { SidebarNavProps } from "@/types/SidebarNavProps";
 
 export default function SidebarNav({ tab, setTab }: SidebarNavProps) {
     const { signUserOut } = useManageUser();

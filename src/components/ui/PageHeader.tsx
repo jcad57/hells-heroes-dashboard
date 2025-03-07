@@ -1,6 +1,6 @@
-import styles from "@/styles/pageHeader.module.css";
-
 import { ReactNode } from "react";
+
+import styles from "@/styles/pageHeader.module.css";
 
 export default function PageHeader({ children }: { children: ReactNode }) {
     return (

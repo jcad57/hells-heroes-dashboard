@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { CreateNewPostProps } from "@/types/CreateNewPostProps";
 
 import closeIcon from "@/assets/images/close-icon.png";
-import Image from "next/image";
 import styles from "@/styles/contentSubmissionForm.module.css";
 import Button from "./ui/Button/Button";
 
