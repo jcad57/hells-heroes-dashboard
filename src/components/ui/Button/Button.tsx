@@ -1,4 +1,4 @@
-import { ButtonProps } from "../../../types/Button";
+import { ButtonProps } from "@/types/ButtonProps";
 import styles from "@/components/ui/Button/Button.module.css";
 
 export default function Button({ children, btnType, onClick }: ButtonProps) {
