@@ -43,6 +43,10 @@
 
 .buttonWrapper {
     display: flex;
-    justify-content: space-between;
+    margin-left: auto;
+    /* align-items: flex-end; */
     gap: 1rem;
+}
+
+@media (max-width: 765px) {
 }

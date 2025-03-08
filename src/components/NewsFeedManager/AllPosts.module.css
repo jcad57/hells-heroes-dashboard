@@ -9,14 +9,9 @@
 .newsFeedListWrapper {
     flex: 1;
     padding-block: 1rem;
+    margin-top: 1rem;
     overflow-y: auto;
-    /* height: 100%; */
 }
 
-@media (max-width: 1133px) {
-    .newsFeedListWrapper {
-        /* display: flex;
-        flex-direction: row;
-        overflow-x: auto; */
-    }
+@media (max-width: 465px) {
 }

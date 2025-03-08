@@ -97,3 +97,8 @@ textarea {
         color-scheme: dark;
     }
 }
+
+@media (max-width: 465px) {
+    body {
+    }
+}
