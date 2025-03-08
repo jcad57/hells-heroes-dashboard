@@ -2,7 +2,7 @@ import Image from "next/image";
 import { CreateNewPostProps } from "@/types/CreateNewPostProps";
 
 import closeIcon from "@/assets/images/close-icon.png";
-import styles from "@/styles/contentSubmissionForm.module.css";
+import styles from "@/components/ContentSubmissionForm.module.css";
 import Button from "./ui/Button/Button";
 
 export default function ContentSubmissionForm({
@@ -33,7 +33,7 @@ export default function ContentSubmissionForm({
                 />
                 <label>Body</label>
                 <textarea
-                    rows={6}
+                    rows={5}
                     placeholder="Upgrade your single day ticket to ..."
                     {...register("body", { required: "Body is required" })}
                 />

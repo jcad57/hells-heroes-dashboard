@@ -1,26 +1,28 @@
-import { useState } from "react";
+import styles from "@/components/Dashboard.module.css";
 
-import styles from "@/styles/dashboard.module.css";
-
-import PageHeader from "./ui/PageHeader";
 import Logo from "./ui/Logo";
-import SidebarNav from "./SidebarNav";
 import NewsFeedManager from "./NewsFeedManager/NewsFeedManager";
-import PushNotificationManager from "./PushNotificationManager/PushNotificationManager";
+import Button from "./ui/Button/Button";
+import logoutIcon from "@/assets/images/logout-icon.png";
+import useManageUser from "@/hooks/useManageUser";
 
 export default function Dashboard() {
-    const [tab, setTab] = useState("newsfeed");
+    const { signUserOut } = useManageUser();
+
     return (
         <div className={`${styles.commandCenterWrapper} ${styles.dashboardCard}`}>
-            <div className={styles.logoContainer}>
-                <Logo />
+            <div className={styles.headingWrapper}>
+                <div className={styles.logoContainer}>
+                    <Logo />
+                </div>
+
+                <Button icon={logoutIcon} className={styles.logoutBtn} btnType="logout" onClick={() => signUserOut()}>
+                    Logout
+                </Button>
             </div>
-            <PageHeader>Hell&apos;s Heroes VII - Dashboard</PageHeader>
-            <SidebarNav tab={tab} setTab={setTab} />
+
             <div className={styles.dashboardContent}>
-                {tab === "newsfeed" && <NewsFeedManager />}
-                {tab === "push" && <PushNotificationManager />}
-                {tab === "business-list" && <h1>Business List</h1>}
+                <NewsFeedManager />
             </div>
         </div>
     );
