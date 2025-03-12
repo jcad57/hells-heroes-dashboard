@@ -8,9 +8,9 @@
     gap: 1.25rem;
     padding: 1.25rem;
     font-size: 1.1em;
-    width: min(35rem, 100%);
+    width: min-content;
     margin-inline: auto;
-    max-height: 100%;
+    width: min(400px, 100%);
 }
 
 .flexBetween {

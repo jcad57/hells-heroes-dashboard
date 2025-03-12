@@ -1,3 +1,4 @@
+"use client";
 import styles from "@/components/ui/NoActivePost.module.css";
 
 interface NoActivePostProps {

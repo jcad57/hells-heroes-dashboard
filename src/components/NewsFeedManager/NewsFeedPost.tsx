@@ -1,3 +1,4 @@
+"use client";
 import { NewsFeedItemProps } from "@/types/NewsFeedItemProps";
 import styles from "./NewsFeedPost.module.css";
 
