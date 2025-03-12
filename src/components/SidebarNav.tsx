@@ -1,3 +1,4 @@
+"use client";
 import { SidebarNavProps } from "@/types/SidebarNavProps";
 import useManageUser from "@/hooks/useManageUser";
 import Image from "next/image";

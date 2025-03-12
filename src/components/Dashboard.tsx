@@ -1,3 +1,4 @@
+"use client";
 import styles from "@/components/Dashboard.module.css";
 
 import Logo from "./ui/Logo";

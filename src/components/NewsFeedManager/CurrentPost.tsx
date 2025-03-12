@@ -1,3 +1,4 @@
+"use client";
 import { formatBodyText } from "@/functions/formatBodyText";
 import { CurrentPostProps } from "@/types/CurrentPostProps";
 import closeIcon from "@/assets/images/close-icon.png";
