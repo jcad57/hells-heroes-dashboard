@@ -11,6 +11,10 @@
     width: min(fit-content, 100%);
 }
 
+.btnText {
+    color: white;
+}
+
 .icon {
     display: flex;
     align-items: center;

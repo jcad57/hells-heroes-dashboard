@@ -92,6 +92,10 @@ textarea {
     font-family: sans-serif;
 }
 
+button {
+    /* color: var(--background); */
+}
+
 @media (prefers-color-scheme: dark) {
     html {
         color-scheme: dark;

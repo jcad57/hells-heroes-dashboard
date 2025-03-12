@@ -1,8 +1,8 @@
 "use client";
 import { ButtonProps } from "@/types/ButtonProps";
+import { useWindowSize } from "@/hooks/useWindowSize";
 import styles from "@/components/ui/Button/Button.module.css";
 import Image from "next/image";
-import { useWindowSize } from "@/hooks/useWindowSize";
 
 export default function Button({ children, btnType, onClick, icon }: ButtonProps) {
     const { isMobile } = useWindowSize();
@@ -14,7 +14,7 @@ export default function Button({ children, btnType, onClick, icon }: ButtonProps
             onClick={onClick}>
             {icon && <Image src={icon} width={25} height={25} alt="logout" />}
             {!isMobile && children}
-            {isMobile && btnType !== "logout" && children}
+            {isMobile && btnType !== "logout" && <span className={styles.btnText}>{children}</span>}
         </button>
     );
 }
