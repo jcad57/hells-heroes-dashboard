@@ -49,7 +49,7 @@ html,
 body {
     display: grid;
     place-items: center;
-    height: 100vh;
+    height: 100dvh;
 }
 
 body {
@@ -90,6 +90,10 @@ textarea {
     padding-block: 0.85rem;
     font-size: 1rem;
     font-family: sans-serif;
+}
+
+button {
+    /* color: var(--background); */
 }
 
 @media (prefers-color-scheme: dark) {
