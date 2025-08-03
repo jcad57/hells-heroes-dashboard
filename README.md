@@ -2,6 +2,8 @@
 
 ### Hell's Heroes CMS
 <img width="850" alt="Hell's Heroes CMS screenshot" src="https://github.com/user-attachments/assets/810ca272-a0a7-4243-a5f9-990f620094f4" />
+<img height="650" alt="Hell's Heroes CMS screenshot" src="https://github.com/user-attachments/assets/55d5c505-a535-4208-857a-27df6967ba17" />
+<img height="650" alt="Hell's Heroes CMS screenshot" src="https://github.com/user-attachments/assets/ba87b21e-9224-477d-b20d-9f557ed48ede" />
 </div>
 
 ## About
