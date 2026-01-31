@@ -1,13 +1,8 @@
-<div align="center">
-
 ### Hell's Heroes CMS
-<img width="850" alt="Hell's Heroes CMS screenshot" src="https://github.com/user-attachments/assets/810ca272-a0a7-4243-a5f9-990f620094f4" />
-<img height="650" alt="Hell's Heroes CMS screenshot" src="https://github.com/user-attachments/assets/55d5c505-a535-4208-857a-27df6967ba17" />
-<img height="650" alt="Hell's Heroes CMS screenshot" src="https://github.com/user-attachments/assets/ba87b21e-9224-477d-b20d-9f557ed48ede" />
-</div>
-
 ## About
-This CMS was built for Hell's Heroes Music Festival managers to be able to manage news feed posts in the mobile app. It features user authentication, create/edit/delete news feed posts, regex formatting for spacing and emojis. 
+This CMS was built for the Hell's Heroes Music Festival team to be able to manage news feed posts in the mobile app. It features user authentication, create/edit/delete news feed posts, regex formatting for spacing/formatting and emojis as well as handle external links. 
+
+<img width="1382" height="893" alt="HHCMS1" src="https://github.com/user-attachments/assets/f6522d88-fe8a-4851-9e5c-689a9e03a4e2" />
 
 ## Built With
 
@@ -15,8 +10,3 @@ This CMS was built for Hell's Heroes Music Festival managers to be able to manag
 * CSS
 * TypeScript
 * Firebase Firestore/Auth
-
-## Contact
-
-[Portfolio](https://jcadev.vercel.app/) 
-[LinkedIn](https://www.linkedin.com/in/jon-deichmann/)
