@@ -3,7 +3,7 @@
     grid-template-rows: min(250px, 15%) auto;
     gap: 1rem;
     padding: 1.25rem;
-    width: min(1200px, 100vw);
+    width: 100vw;
     height: 100svh;
     overflow: hidden;
 }
